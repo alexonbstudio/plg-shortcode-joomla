@@ -3,13 +3,18 @@
  * @package	Plugin for Joomla!
  * @subpackage  plg_shortcode
  * @version	4.2.1
- * @author	AlexonBalangue.me
- * @copyright	(C) 2012-2015 Alexon Balangue. All rights reserved.
+ * @author	Alexon Balangue
+ * @link	AlexonbStudio.fr
+ * @copyright	(C) 2012-2020 AlexonbStudio. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
 
 //no direct accees
 defined ('_JEXEC') or die;
+
+use Joomla\CMS\Factory;
+
+
 if(!defined('DS')) define('DS', DIRECTORY_SEPARATOR);# Add this code For Joomla 3.3.4+
 
 jimport('joomla.plugin.plugin');
@@ -40,7 +45,7 @@ class PlgSystemShortcode extends JPlugin
     public function onAfterRender()
     {
 		$app = JFactory::getApplication();
-		$docs = JFactory::getDocument();
+		#$docs = JFactory::getDocument();
 		if( $app->isAdmin() ) {
 			$data = JResponse::getBody();
 			JResponse::setBody($data);			
@@ -56,7 +61,7 @@ class PlgSystemShortcode extends JPlugin
 
 			JResponse::setBody($data);
 		}
-		$docs->addStyleDeclaration('.grade{text-align:center;margin:15px auto;width:72px;height:72px;font-size:50px;line-height:72px;font-weight:400;color:#fff}.grade-a{background-color:#00A500}.grade-b{background-color:#68D035}.grade-c{background-color:#F8CF00}.grade-d{background-color:#FFA901}.grade-e{background-color:#FF7701}.grade-f,.grade-m,.grade-t,.grade-unknown{background-color:#FF4D41}');
+		#$docs->addStyleDeclaration('.grade{text-align:center;margin:15px auto;width:72px;height:72px;font-size:50px;line-height:72px;font-weight:400;color:#fff}.grade-a{background-color:#00A500}.grade-b{background-color:#68D035}.grade-c{background-color:#F8CF00}.grade-d{background-color:#FFA901}.grade-e{background-color:#FF7701}.grade-f,.grade-m,.grade-t,.grade-unknown{background-color:#FF4D41}');
 
 	}
 }
