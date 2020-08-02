@@ -127,17 +127,15 @@ if(!function_exists('bs4form_sc')) {
 		extract(bbcodes_atts(array(
 				'form' => '',
 				'action' => '',
-				'method' => 'post'
+				'method' => ''
 		 ), $atts));
 		 
 		$option = ($form !='') ? ' class="'.$form.'"' : ' class="form-inline"';
 		$option .= ($action !='') ? ' action="'.$action.'"' : ' action="#"';
-		$option .= ($method !='') ? ' method="'.$method.'"' : ' method="get"';
+		$option .= ($method !='') ? ' method="'.$method.'"' : ' method="post"';
 
 		return '<form'.$option.' role="form">
-					<div class="form-group">
 						'.do_bbcodes($content).'
-					</div>
 				</form>';
 	}
 		
@@ -177,7 +175,7 @@ if(!function_exists('bs4shape_sc')) {
 				'src' => '',
 				'alt' => '',
 				'img' => '',
-				'mdataprop' => 'images'
+				'mdataprop' => ''
 		 ), $atts));
 		 
 		$option = ($img !='') ? ' img-'.$img : '';
