@@ -2,25 +2,31 @@
 /**
  * @package	Plugin for Joomla!
  * @subpackage  plg_shortcode
- * @version	4.1.1
- * @author	AlexonBalangue.me
- * @copyright	(C) 2012-2015 Alexon Balangue. All rights reserved.
+ * @version	4.2.2
+ * @author	Alexon Balangue
+ * @copyright	(C) 2012-2020 AlexonbStude. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
+
 
 //no direct accees
 defined ('_JEXEC') or die('resticted aceess');
 
 if(!function_exists('sites_sc')) {
 
-	function badgelxw_sc( $atts, $content) {
+	function sites_sc( $atts, $content) {
 		extract(bbcodes_atts(array(
 				'url' => ''
 		 ), $atts));
 		 
-		$urls = ($url !='') ? $url : JURI::current();
+		$urls = ($url !='') ? $url : JURI::base();
 		
-		return $urls.' '.$content;
+		ob_start(); 
+		
+		echo $urls; 
+		
+		$data = ob_get_clean();
+		return $data;
 	}
 		
 	add_bbcodes( 'sites', 'sites_sc' );
