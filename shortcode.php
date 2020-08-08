@@ -4,24 +4,18 @@
  * @subpackage  plg_shortcode
  * @version	4.2.2
  * @author	Alexon Balangue
- * @link	AlexonbStudio.fr
- * @copyright	(C) 2012-2020 AlexonbStudio. All rights reserved.
+ * @copyright	(C) 2012-2020 AlexonbStude. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
 
 //no direct accees
 defined ('_JEXEC') or die;
-
-use Joomla\CMS\Factory;
-use Joomla\CMS\Plugin\CMSPlugin;
-use Joomla\CMS\Application;
-
 if(!defined('DS')) define('DS', DIRECTORY_SEPARATOR);# Add this code For Joomla 3.3.4+
 
 jimport('joomla.plugin.plugin');
 jimport( 'joomla.event.plugin' );
 
-class PlgSystemShortcode extends CMSPlugin
+class PlgSystemShortcode extends JPlugin
 {
 	protected $autoloadLanguage = true;
 	
@@ -45,16 +39,14 @@ class PlgSystemShortcode extends CMSPlugin
 
     public function onAfterRender()
     {
-		$app = Factory::getApplication();
-		#$docs = JFactory::getDocument();
-		if( $app->isClient('administrator') ) {
-			$data = JApplicationWeb::getBody();
-			JApplicationWeb::setBody($data);			
-			#JResponse::setBody($data);	#J3		
+		$app = JFactory::getApplication();
+		$docs = JFactory::getDocument();
+		if( $app->isAdmin() ) {
+			$data = JResponse::getBody();
+			JResponse::setBody($data);			
 					
 		} else {	
-			#$data = JResponse::getBody(); 
-			$data = JApplicationWeb::getBody(); 
+			$data = JResponse::getBody(); 
 
 			$new_html_data = '';
 	
@@ -62,9 +54,9 @@ class PlgSystemShortcode extends CMSPlugin
 			$data = do_bbcodes($data); 
 			$data = str_replace('</html>', $new_html_data . "\n</html>", $data);
 
-			JApplicationWeb::setBody($data);
+			JResponse::setBody($data);
 		}
-		#$docs->addStyleDeclaration('.grade{text-align:center;margin:15px auto;width:72px;height:72px;font-size:50px;line-height:72px;font-weight:400;color:#fff}.grade-a{background-color:#00A500}.grade-b{background-color:#68D035}.grade-c{background-color:#F8CF00}.grade-d{background-color:#FFA901}.grade-e{background-color:#FF7701}.grade-f,.grade-m,.grade-t,.grade-unknown{background-color:#FF4D41}');
+		$docs->addStyleDeclaration('.grade{text-align:center;margin:15px auto;width:72px;height:72px;font-size:50px;line-height:72px;font-weight:400;color:#fff}.grade-a{background-color:#00A500}.grade-b{background-color:#68D035}.grade-c{background-color:#F8CF00}.grade-d{background-color:#FFA901}.grade-e{background-color:#FF7701}.grade-f,.grade-m,.grade-t,.grade-unknown{background-color:#FF4D41}');
 
 	}
 }

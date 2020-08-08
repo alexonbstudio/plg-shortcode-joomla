@@ -1,12 +1,13 @@
 <?php
 /**
  * @package	Plugin for Joomla!
- * @subpackage  plarge_shortcode
- * @version	3.9.7
- * @author	AlexonBalangue.me
- * @copyright	(C) 2012-2015 Alexon Balangue. All rights reserved.
+ * @subpackage  plg_shortcode
+ * @version	4.2.2
+ * @author	Alexon Balangue
+ * @copyright	(C) 2012-2020 AlexonbStude. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
+
  defined ('_JEXEC') or die('resticted aceess');
 //no direct accees
 if(!function_exists('figridrow_sc')) {

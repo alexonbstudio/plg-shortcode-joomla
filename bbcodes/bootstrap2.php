@@ -2,12 +2,12 @@
 /**
  * @package	Plugin for Joomla!
  * @subpackage  plg_shortcode
- * @version	4.1.5
- * @author	AlexonBalangue.me
- * @original & imported from Helix2 Framework compatible Bootstrap2 - for Joomla 2.5
- * @copyright	(C) 2012-2015 Alexon Balangue. All rights reserved.
+ * @version	4.2.2
+ * @author	Alexon Balangue
+ * @copyright	(C) 2012-2020 AlexonbStude. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
+
 
 //no direct accees
 defined ('_JEXEC') or die('resticted aceess');
