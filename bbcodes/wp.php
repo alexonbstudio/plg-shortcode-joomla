@@ -73,15 +73,15 @@ if(!function_exists('wp_sc')) {
 		
 		# prepared show article output
 		if(!empty($phoneJsonWP_business)){
-			$showphoneNumber = '<a rel="nofollow" href="tel:'$wp_business['local']['phone']['code'].$phoneJsonWP_business.'">'.$wp_business['local']['phone']['normal'].' '.$phoneJsonWP_business.'</a>';
+			$showphoneNumber = '<a rel="nofollow" href="tel:'.$wp_business['local']['phone']['code'].$phoneJsonWP_business.'">'.$wp_business['local']['phone']['normal'].' '.$phoneJsonWP_business.'</a>';
 		}
 		
 		if(!empty($mobileJsonWP_business)){
-			$showmobileNumber = '<a rel="nofollow" href="tel:'$wp_business['local']['mobile']['code'].$mobileJsonWP_business.'">'.$wp_business['local']['mobile']['normal'].' '.$mobileJsonWP_business.'</a>';
+			$showmobileNumber = '<a rel="nofollow" href="tel:'.$wp_business['local']['mobile']['code'].$mobileJsonWP_business.'">'.$wp_business['local']['mobile']['normal'].' '.$mobileJsonWP_business.'</a>';
 		}
 		
 		if(!empty($faxJsonWP_business)){
-			$showfaxNumber = '<a rel="nofollow" href="tel:'$wp_business['local']['fax']['code'].$faxJsonWP_business.'">'.$wp_business['local']['fax']['normal'].' '.$faxJsonWP_business.'</a>';
+			$showfaxNumber = '<a rel="nofollow" href="tel:'.$wp_business['local']['fax']['code'].$faxJsonWP_business.'">'.$wp_business['local']['fax']['normal'].' '.$faxJsonWP_business.'</a>';
 		}
 		
 		if(!empty($logoJsonWP_images)){
