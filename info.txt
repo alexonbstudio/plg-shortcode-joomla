@@ -1,3 +1,4 @@
+infomation important
 AMPHTML deleted
 addhome deleted
 advices deleted
@@ -15,7 +16,8 @@ foundationicons deleted
 cookies deleted
 antiadblock deleted
 
-
+Make Again to news for Futur Compatible Joomla 4
+--pending--
 
 
 
