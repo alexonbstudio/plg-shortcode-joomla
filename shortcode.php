@@ -10,6 +10,27 @@
 
 //no direct accees
 defined ('_JEXEC') or die;
+
+#USING
+#use Joomla\CMS\Helper\ModuleHelper;
+#use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Document;
+use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\Language;
+#use Joomla\CMS\User;
+#use Joomla\Component\Finder\Administrator\Indexer\Query;
+#use Joomla\Utilities\ArrayHelper;
+
+/*
+$configs = Factory::getConfig();
+$langs = Factory::getLanguage();
+#$langs = Factory::getLanguage(); #LanguageHelper::exists($lang)
+$users = Factory::getUser();
+$roots = Uri::root();
+$base = Uri::base();
+$current = Uri::current();
+*/
 if(!defined('DS')) define('DS', DIRECTORY_SEPARATOR);# Add this code For Joomla 3.3.4+
 
 jimport('joomla.plugin.plugin');
@@ -39,8 +60,9 @@ class PlgSystemShortcode extends JPlugin
 
     public function onAfterRender()
     {
-		$app = JFactory::getApplication();
-		$docs = JFactory::getDocument();
+		#GET LIBS
+		$apps = Factory::getApplication();
+		$docs = Factory::getDocument();
 		if( $app->isAdmin() ) {
 			$data = JResponse::getBody();
 			JResponse::setBody($data);			

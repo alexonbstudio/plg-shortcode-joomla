@@ -26,7 +26,7 @@ if(!function_exists('ssllabs_sc')) {
 
 class sslLabsApi
 {
-	//CONST API_URL = "https://api.ssllabs.com/api/v2";
+	CONST API_URL = "https://api.ssllabs.com/api/v3";
 	
 	private $returnJsonObjects;
 	
@@ -238,7 +238,7 @@ class sslLabsApi
 		 /*********************************/
 		$host = ($domains !='') ? $domains : '';
 		$langs = ($lang !='') ? $lang : 'Voir les D&eacute;tailles.';
-		$api = $api = new sslLabsApi();
+		$api = new sslLabsApi();
 
 			//$website = 'https://www.alexonbalangue.me'; 
 			$json = $api->fetchHostInformation($host);	
