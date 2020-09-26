@@ -2,12 +2,11 @@
 /**
  * @package	Plugin for Joomla!
  * @subpackage  plg_shortcode
- * @version	4.2.2
- * @author	Alexon Balangue
- * @copyright	(C) 2012-2020 AlexonbStude. All rights reserved.
+ * @version	4.1.6
+ * @author	AlexonBalangue.me
+ * @copyright	(C) 2012-2015 Alexon Balangue. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
-
 
 //no direct accees
 defined ('_JEXEC') or die('resticted aceess');
@@ -26,7 +25,7 @@ if(!function_exists('ssllabs_sc')) {
 
 class sslLabsApi
 {
-	CONST API_URL = "https://api.ssllabs.com/api/v3";
+	CONST API_URL = "https://api.ssllabs.com/api/v2";
 	
 	private $returnJsonObjects;
 	
@@ -238,7 +237,7 @@ class sslLabsApi
 		 /*********************************/
 		$host = ($domains !='') ? $domains : '';
 		$langs = ($lang !='') ? $lang : 'Voir les D&eacute;tailles.';
-		$api = new sslLabsApi();
+		$api = $api = new sslLabsApi();
 
 			//$website = 'https://www.alexonbalangue.me'; 
 			$json = $api->fetchHostInformation($host);	

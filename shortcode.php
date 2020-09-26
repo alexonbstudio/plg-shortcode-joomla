@@ -3,8 +3,8 @@
  * @package	Plugin for Joomla!
  * @subpackage  plg_shortcode
  * @version	4.2.2
- * @author	Alexon Balangue
- * @copyright	(C) 2012-2020 AlexonbStude. All rights reserved.
+ * @author	AlexonBalangue.me
+ * @copyright	(C) 2012-2015 Alexon Balangue. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
 
@@ -12,26 +12,11 @@
 defined ('_JEXEC') or die;
 if(!defined('DS')) define('DS', DIRECTORY_SEPARATOR);# Add this code For Joomla 3.3.4+
 
-//jimport('joomla.plugin.plugin');
-//jimport( 'joomla.event.plugin' );
+jimport('joomla.plugin.plugin');
+jimport( 'joomla.event.plugin' );
 
-use Joomla\CMS\Plugin\CMSPlugin;
-use Joomla\CMS\Factory;
-//use Joomla\CMS\Plugin\CMSPlugin;
-use Joomla\CMS\Plugin\PluginHelper;
-use Joomla\CMS\Application\SiteApplication;
-
-#class PlgSystemShortcode extends JPlugin
-class PlgSystemShortcode extends CMSPlugin
+class PlgSystemShortcode extends JPlugin
 {
-	/**
-	 * Application object.
-	 *
-	 * @var    JApplicationCms
-	 * @since  3.9.0
-	 */
-	//protected $app;
-	
 	protected $autoloadLanguage = true;
 	
 	//public function plgSystemShortcode(&$subject,$config)
@@ -39,7 +24,6 @@ class PlgSystemShortcode extends CMSPlugin
 	{
 		parent::__construct($subject,$config); 
 		//$this->loadLanguage();
-		//$this->app;
 		
 	}
 	
@@ -55,17 +39,11 @@ class PlgSystemShortcode extends CMSPlugin
 
     public function onAfterRender()
     {
-		$app = Factory::getApplication();
-		$docs = Factory::getDocument();
-		if($this->app->isClient('administrator')) {
-			#$data = JResponse::getBody();
-			#JResponse::setBody($data);	
-			$data = $this->app->getBody();
-			$this->app->setBody($data);			
-					
-		} else {	
+		$app = JFactory::getApplication();
+		$docs = JFactory::getDocument();
+		if( $app->isClient('site') ) {
 			#$data = JResponse::getBody(); 
-			$data = $this->app->getBody(); 
+			$data = $app->getBody(); # Fix Joomla 3.9 / >= 4 not compatible
 
 			$new_html_data = '';
 	
@@ -74,9 +52,15 @@ class PlgSystemShortcode extends CMSPlugin
 			$data = str_replace('</html>', $new_html_data . "\n</html>", $data);
 
 			#JResponse::setBody($data);
-			$this->app->setBody($data);
+			$app->setBody($data); # Fix Joomla 3.9 / >= 4 not compatible
+		} else {	
+			#$data = JResponse::getBody();
+			#JResponse::setBody($data);	
+			$data = $app->getBody(); # Fix Joomla 3.9 / >= 4 not compatible
+			$app->setBody($data);	 # Fix Joomla 3.9 / >= 4 not compatible		
+					
 		}
-		//$docs->addStyleDeclaration('.grade{text-align:center;margin:15px auto;width:72px;height:72px;font-size:50px;line-height:72px;font-weight:400;color:#fff}.grade-a{background-color:#00A500}.grade-b{background-color:#68D035}.grade-c{background-color:#F8CF00}.grade-d{background-color:#FFA901}.grade-e{background-color:#FF7701}.grade-f,.grade-m,.grade-t,.grade-unknown{background-color:#FF4D41}');
+		$docs->addStyleDeclaration('.grade{text-align:center;margin:15px auto;width:72px;height:72px;font-size:50px;line-height:72px;font-weight:400;color:#fff}.grade-a{background-color:#00A500}.grade-b{background-color:#68D035}.grade-c{background-color:#F8CF00}.grade-d{background-color:#FFA901}.grade-e{background-color:#FF7701}.grade-f,.grade-m,.grade-t,.grade-unknown{background-color:#FF4D41}');
 
 	}
 }

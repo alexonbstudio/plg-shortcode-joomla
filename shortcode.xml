@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.8" type="plugin" group="system" method="upgrade">
+<extension version="3.9" type="plugin" group="system" method="upgrade">
     <name>shortcode</name>
     <author>Alexon Balangue</author>
     <creationDate>20 may 2018 </creationDate>
-    <copyright>Copyright (C) 2012-2020 Alexon Balangue. All rights reserved.</copyright>
+    <copyright>Copyright (C) 2012-2020 Alexonbstudio. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
     <authorEmail>contact@alexonbstudio.fr</authorEmail>
     <authorUrl>alexonbstudio.fr</authorUrl>
     <version>4.2.2</version>
-    <description>PLG_SHORTCODE_XML_DESCRIPTION</description>
+    <description>PLG_SHORTCODE_XML_DESC</description>
     <files>
 		<filename plugin="shortcode">shortcode.php</filename>
 		<filename>shortcode.xml</filename>
@@ -28,13 +28,8 @@
 			<fieldset name="basic">
 				<field 
 					type="spacer" 
-					label="PLG_SHORTCODE_FULL_DOCS"
+					label="JFIELD_PLG_SHORTCODE_MOREINFORMATION"
 					hr="true" />				
-			</fieldset>
-			<fieldset name="plugin_shortcode_site" label="info">		
-				<field 
-					type="spacer" 
-					label="PLG_SHORTCODE_INFO" />			
 			</fieldset>
 		</fields>
 	</config>

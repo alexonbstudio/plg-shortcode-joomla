@@ -13,7 +13,7 @@ defined ('_JEXEC') or die('resticted aceess');
 
 if(!function_exists('wp_sc')) {
 
-	function wp_general_sc( $atts, $content) {
+	function wp_sc( $atts, $content) {
 		extract(bbcodes_atts(array(
 				'domain' => '',
 				/*Site imported GET Json WP - sites*/
@@ -118,44 +118,6 @@ if(!function_exists('wp_sc')) {
 		</div>
 		
 <?php 		
-		$data = ob_get_clean();
-		return $data;
-	}
-		
-	add_bbcodes( 'wp-general', 'wp_general_sc' );
-}
-#########################################################"
-
-if(!function_exists('wp_sc')) {
-
-	function wp_sc( $atts, $content) {
-		extract(bbcodes_atts(array(
-				'domain' => ''
-		 ), $atts));
-		 
-		$domain = ($domain !='') ? $domain : 'alexonbstudio.fr';
-		
-		
-		$wp_sites = json_decode(file_get_contents('https://'.$domain .'/api/sites.json'), true);
-		$wp_business = json_decode(file_get_contents('https://'.$domain .'/api/business.json'), true);
-		$wp_images = json_decode(file_get_contents('https://'.$domain .'/api/images.json'), true);
-		
-		
-		# API JSON DECODE Website Project WP - SITES
-		$nameJsonWP_sites = ($name !='') ? $name : $wp_sites['name'];
-		$sitesJsonWP_sites = ($sites !='') ? $sites : $wp_sites['domain'];
-		
-		if(!empty($sitesJsonWP_sites)){
-			$domainTLD = $sitesJsonWP_sites;
-		} else {
-			$domainTLD = $wp_sites['auto']['domain'];
-		}
-	
-		
-		
-		ob_start(); 
-		
-	
 		$data = ob_get_clean();
 		return $data;
 	}
