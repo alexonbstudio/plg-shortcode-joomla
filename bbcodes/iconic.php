@@ -10,29 +10,6 @@
 //no direct accees
 defined ('_JEXEC') or die('resticted aceess');
 
-//SVG - Recomande https://useiconic.com/purchase/ $129 USD
-if(!function_exists('iconicsvg_sc')) {
-
-	function iconicsvg_sc( $atts, $content="" ) {
-		extract(bbcodes_atts(array(
-				'name' => '', //Name of icon
-				'src' => '', //data-src where folder only
-				'alt' => '', //alt of icon
-				'size' => '', // size: sm, md, lg
-				'more' => ''//More fa-li, fa-spin, etc....
-		 ), $atts));
-		 
-		$directory = ($src !='') ? $src : 'media/mod_opensource/useiconic/svg/static/';
-		$files = ($name !='') ? $name : '';
-		$option = ($size !='') ? ' iconic-'.$size : '';
-		$option .= ($more !='') ? ' '.$more : '';
-		$titles = ($alt !='') ? 'alt="'.$alt.'"' : 'alt="'.$name.'"';
-
-		return '<img data-src="'.$directory.$files.'.svg" class="iconic'.$option.'"'.$titles.'>' . $content;
-	}
-		
-	add_bbcodes( 'iosvg', 'iconicsvg_sc' );
-}
 //Default - Recomande https://useiconic.com/purchase/ $129 USD
 if(!function_exists('iconicdefault_sc')) {
 
