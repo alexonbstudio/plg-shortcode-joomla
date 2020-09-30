@@ -237,7 +237,7 @@ class sslLabsApi
 		 /*********************************/
 		$host = ($domains !='') ? $domains : '';
 		$langs = ($lang !='') ? $lang : 'Voir les D&eacute;tailles.';
-		$api = $api = new sslLabsApi();
+		$api = new sslLabsApi();
 
 			//$website = 'https://www.alexonbalangue.me'; 
 			$json = $api->fetchHostInformation($host);	
