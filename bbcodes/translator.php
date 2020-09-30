@@ -14,16 +14,14 @@ if(!function_exists('googletw_sc')) {
 
 	function googletw_sc( $atts, $content="" ) {
 		extract(bbcodes_atts(array(
-				'css' => '', //Name of icon
-				'setting' => '', //Name of icon
-				'from' => ''//More typcn-li, typcn-spin, etc....
+				'lang' => '' // indicate a default language is English (ex: fr, en, de, es)
 		 ), $atts));
 		 
-		$css_class = ($css !='') ? $css : 'Dark';
-		$js_set .= ($setting !='') ? $setting : 'undefined';
-		$js_from .= ($from !='') ? $from : '';
+		$langs = ($lang !='') ? $lang : 'en';
 
-		return 'Not yet works' . $content;
+		return '<div id="google_translate_element"></div>
+				<script type="text/javascript">function googleTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: '.$langs.'},\'google_translate_element\');}</script>
+				<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>' . $content;
 	}
 		
 	add_bbcodes( 'google-translator', 'googletw_sc' );
