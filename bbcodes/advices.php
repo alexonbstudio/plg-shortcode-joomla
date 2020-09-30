@@ -22,13 +22,13 @@ if(!function_exists('badgelxw_sc')) {
 				'showembed' => ''
 		 ), $atts));
 		 
-		$urls = ($url !='') ? $url : JURI::current();
+		$urls = ($url !='') ? $url : Juri::current();
 		$LivingxWorld = ($badge !='') ? $badge : 'assets/images/logo-small.png';
 		$embeds = ($showembed !='') ? $showembed : 'yes';
 		ob_start();
-			echo '<a href="https://business.livingx.world/"><img src="https://business.livingx.world/'.$LivingxWorld.'" alt="Badge par Livingx.World" itemprop="image"></a>';
+			echo ' ';
 			if($embeds == 'yes'){
-				echo '<textarea cols="40" rows="6"><a href="'.$urls.'" rel="next" target="_top" itemprop="url"><img src="https://business.livingx.world/'.$LivingxWorld.'" alt="badge par livingx.world" itemprop="image" /></a></textarea>';
+				echo '<b>--BADGE NOT CONTINUED--</b>';
 			}
 		
 		
