@@ -183,6 +183,7 @@ if(!function_exists('meta_sc')) {
 				'chrset' => '',
 				'sheme' => '',
 				'name' => '',
+				'property' => '',
 				'httpequiv' => '',
 				'contents' => '',
 				'mdatatype' => '',
@@ -192,6 +193,7 @@ if(!function_exists('meta_sc')) {
 		$option = ($chrset !='') ? ' chrset="'.$chrset.'"' : '';
 		$option .= ($sheme !='') ? ' sheme="'.$sheme.'"' : '';
 		$option .= ($name !='') ? ' name="'.$name.'"' : '';
+		$option .= ($property !='') ? ' property="'.$property.'"' : '';
 		$option .= ($httpequiv !='') ? ' http-equiv="'.$httpequiv.'"' : '';
 		$option .= ($contents !='') ? ' content="'.$contents.'"' : '';
 		$option .= ($mdatatype !='') ? ' itemscope itemtype="'.$mdatatype.'"' : '';
