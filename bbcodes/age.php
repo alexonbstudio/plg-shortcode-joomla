@@ -22,14 +22,22 @@ if(!function_exists('age_sc')) {
 		
 		$BirthdayDate = ($bday !='') ? $bday : '';
 		
-		$BirthdayDate = explode("/", $BirthdayDate);
-		$age_out = (date("md", date("U", mktime(0, 0, 0, $BirthdayDate[0], $BirthdayDate[1], $BirthdayDate[2]))) > date("md") ? ((date("Y") - $BirthdayDate[2]) - 1) : (date("Y") - $BirthdayDate[2]));		 
+		$age_out = age_final_calculate($BirthdayDate);
 		$translate_years_old = ($lang !='') ? $lang : '';
 		
 
 		return $age_out.' '.$translate_years_old.' '.$content;
-	}		
+	}	
+	function age_final_calculate($born){
+		$InDateBorn = explode('/', $born);
+		$OutDateBornAuto = explode('/', date('d/m/Y'));
+		if(($InDateBorn[1] < $OutDateBornAuto[1]) || (($InDateBorn[1] == $OutDateBornAuto[1]) && ($InDateBorn[0] <= $OutDateBornAuto[0]))) return $OutDateBornAuto[2] - $InDateBorn[2];
+		return $OutDateBornAuto[2] - $InDateBorn[2] - 1;
+	}	
 	add_bbcodes( 'age', 'age_sc' );
+}
+
+if(!function_exists('ageus_sc')) {
 	/*************METHODE Format English**************/
 	function ageus_sc( $atts, $content) {
 		extract(bbcodes_atts(array(
