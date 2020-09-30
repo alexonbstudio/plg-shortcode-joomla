@@ -7,7 +7,7 @@
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
     <authorEmail>contact@alexonbstudio.fr</authorEmail>
     <authorUrl>alexonbstudio.fr</authorUrl>
-    <version>4.2.2</version>
+    <version>4.2.3</version>
     <description>PLG_SHORTCODE_XML_DESC</description>
     <files>
 		<filename plugin="shortcode">shortcode.php</filename>
@@ -33,5 +33,10 @@
 			</fieldset>
 		</fields>
 	</config>
+	
+	<updateservers>
+		<server type="collection">https://raw.githubusercontent.com/alexonbstudio/joomla-update/master/extention.xmlhttps://example.com/list.xml</server>
+		<server type="extension" priority="2" name="Plugin system shortcode Updates">https://raw.githubusercontent.com/alexonbstudio/joomla-update/master/public/plugin-system-shortcode.xml</server>
+	</updateservers>
 	
 </extension>
