@@ -25,7 +25,7 @@ if(!function_exists('ssllabs_sc')) {
 
 class sslLabsApi
 {
-	CONST API_URL = "https://api.ssllabs.com/api/v2";
+	CONST API_URL = "https://api.ssllabs.com/api/v3";
 	
 	private $returnJsonObjects;
 	
@@ -158,7 +158,7 @@ class sslLabsApi
 			)
 		);
 		//$url = self::API_URL . '/' . $apiCall . $this->buildGetParameterString($parameters);
-		$url = 'https://api.ssllabs.com/api/v2/' . $apiCall . $this->buildGetParameterString($parameters);
+		$url = 'https://api.ssllabs.com/api/v3/' . $apiCall . $this->buildGetParameterString($parameters);
 		$apiResponse = file_get_contents($url, false, $context);
 		
 		if($this->returnJsonObjects)
@@ -236,7 +236,7 @@ class sslLabsApi
 		 ), $atts));
 		 /*********************************/
 		$host = ($domains !='') ? $domains : '';
-		$langs = ($lang !='') ? $lang : 'Voir les D&eacute;tailles.';
+		$langs = ($lang !='') ? $lang : 'See More';
 		$api = new sslLabsApi();
 
 			//$website = 'https://www.alexonbalangue.me'; 
