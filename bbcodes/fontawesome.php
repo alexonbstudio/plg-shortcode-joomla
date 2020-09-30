@@ -24,7 +24,7 @@ if(!function_exists('fontawesome_sc')) {
 				'more' => ''//More fa-li, fa-spin, etc....
 		 ), $atts));
 		 
-		$bsv = ($bs !='') ? $bs : 'fal'; //default PRO light v5
+		$bsv = ($bs !='') ? $bs : 'far'; //default free
 		$option = ($name !='') ? ' fa-'.$name : '';
 		$option .= ($zoom !='') ? ' fa-'.$zoom : '';
 		$option .= ($more !='') ? ' '.$more : '';
