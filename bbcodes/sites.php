@@ -19,7 +19,7 @@ if(!function_exists('sites_sc')) {
 				'url' => ''
 		 ), $atts));
 		 
-		$urls = ($url !='') ? $url : JURI::base();
+		$urls = ($url !='') ? $url : Juri::base();
 		
 		ob_start(); 
 		
