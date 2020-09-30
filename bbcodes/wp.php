@@ -11,9 +11,9 @@
 //no direct accees
 defined ('_JEXEC') or die('resticted aceess');
 
-if(!function_exists('wp_sc')) {
+if(!function_exists('wp_general_sc')) {
 
-	function wp_sc( $atts, $content) {
+	function wp_general_sc( $atts, $content) {
 		extract(bbcodes_atts(array(
 				'domain' => '',
 				/*Site imported GET Json WP - sites*/
@@ -112,7 +112,7 @@ if(!function_exists('wp_sc')) {
 			
 			<div class="row">
 				<div class="col-lg-12">
-					Compatible PHP >= 7.2 <a href="https://github.com/alexonbstudio/website-project">Website Project WP</a>
+					Compatible PHP >= 7.2 <a href="https://github.com/alexonbstudio/website-project">Website Project WP</a> / <a href="https://github.com/alexonbstudio/wp-api">WP API (REMOTE)</a>
 				</div>
 			</div>
 		</div>
@@ -122,5 +122,5 @@ if(!function_exists('wp_sc')) {
 		return $data;
 	}
 		
-	add_bbcodes( 'wp', 'wp_sc' );
+	add_bbcodes( 'wp-general', 'wp_general_sc' );
 }
