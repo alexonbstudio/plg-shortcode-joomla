@@ -2,7 +2,7 @@
 /**
  * @package	Plugin for Joomla!
  * @subpackage  plg_shortcode
- * @version	4.2.3
+ * @version	4.2.3 BETA
  * @author	Alexon Balangue
  * @link	alexonbstudio.fr
  * @copyright	(C) 2012-2020 Alexon Balangue. All rights reserved.
@@ -11,12 +11,19 @@
 
 //no direct accees
 defined ('_JEXEC') or die;
+
+use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Document;
+use Joomla\CMS\Uri\Uri;
+
+
 if(!defined('DS')) define('DS', DIRECTORY_SEPARATOR);# Add this code For Joomla 3.3.4+
 
-jimport('joomla.plugin.plugin');
-jimport( 'joomla.event.plugin' );
+#jimport('joomla.plugin.plugin'); # not support Joomla 4
+#jimport( 'joomla.event.plugin' ); # not support Joomla 4
 
-class PlgSystemShortcode extends JPlugin
+class PlgSystemShortcode extends CMSPlugin
 {
 	protected $autoloadLanguage = true;
 	
@@ -33,15 +40,16 @@ class PlgSystemShortcode extends JPlugin
         $shortcode_path = JPATH_PLUGINS.DS.'system'.DS.'shortcode'.DS.'wp'.DS.'shortcode.php';
         if (file_exists($shortcode_path)) {
             require_once($shortcode_path);
-            Shortcodes::getInstance()->loadShortcodesOverwrite()->importbbcodeFiles();
+            Shortcodes::getInstance()->importbbcodeFiles();
+            #Shortcodes::getInstance()->loadShortcodesOverwrite()->importbbcodeFiles();
         }
 
     }
 
     public function onAfterRender()
     {
-		$app = JFactory::getApplication();
-		$docs = JFactory::getDocument();
+		$app = Factory::getApplication();
+		$docs = Factory::getDocument();
 		if( $app->isClient('site') ) {
 			#$data = JResponse::getBody(); 
 			$data = $app->getBody(); # Fix Joomla 3.9 / >= 4 not compatible

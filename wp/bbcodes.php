@@ -93,8 +93,9 @@
     function add_bbcodes($tag, $func) {
         global $shortcode;
 
-        if ( is_callable($func) )
+        if ( is_callable($func) ){
             $shortcode->bbcodes_tags[$tag] = $func;
+		}
     }
 
     /**

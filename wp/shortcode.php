@@ -2,7 +2,7 @@
 /**
  * @package	Plugin for Joomla!
  * @subpackage  plg_shortcode
- * @version	4.2.3
+ * @version	4.2.3 BETA 1
  * @author	Alexon Balangue
  * @link	alexonbstudio.fr
  * @copyright	(C) 2012-2020 Alexon Balangue. All rights reserved.
@@ -12,9 +12,19 @@
 
     //no direct accees
     defined ('_JEXEC') or die('resticted aceess');
+	
+	
+use Joomla\CMS\Factory;
+use Joomla\CMS\Document;
+#use Joomla\CMS\Uri\Uri;
 
-    jimport('joomla.filesystem.file');
-    jimport('joomla.filesystem.folder');
+
+
+JLoader::register('JFile', JPATH_LIBRARIES . '/src/Filesystem/File.php');
+JLoader::register('JFolder', JPATH_LIBRARIES . '/src/Filesystem/Folder.php');
+
+//    jimport('joomla.filesystem.file'); # not support Joomla 4
+//    jimport('joomla.filesystem.folder'); # not support Joomla 4
 
     class Shortcodes {
 
@@ -29,14 +39,14 @@
 		
         public function loadShortcodesOverwrite(){
 
-             if (!JFactory::getApplication()->isAdmin()) {
+             /*if (!Factory::getApplication()->isClient('administrator')) {
 
-                if( JVERSION >= 3 ){
+                if( JVERSION >= 4 ){
                     if (!class_exists('JViewLegacy', false))  self::getInstance()->Import('wp/joomla/viewlegacy.php');
                     if (!class_exists('JModuleHelper', false)) self::getInstance()->Import('wp/joomla/helper.php'); 
 
                 } 
-            }
+            }*/
 
             return self::getInstance();
 
@@ -60,7 +70,7 @@
 		*/
         public static function getDocument($key=false)
         {
-            self::getInstance()->document = JFactory::getDocument();
+            self::getInstance()->document = Factory::getDocument();
             $doc = self::getInstance()->document;
             if( is_string($key) ) return $doc->$key;
 
