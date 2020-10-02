@@ -21,7 +21,7 @@ if(!function_exists('sites_sc')) {
 				'url' => ''
 		 ), $atts));
 		 
-		$urls = ($url !='') ? $url : Juri::base();
+		$urls = ($url !='') ? $url : preg_replace('/www./i', '', $_SERVER['SERVER_NAME']);
 		
 		ob_start(); 
 		

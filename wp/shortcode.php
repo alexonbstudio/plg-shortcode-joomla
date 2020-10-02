@@ -16,7 +16,7 @@
 	
 use Joomla\CMS\Factory;
 use Joomla\CMS\Document;
-#use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\Uri\Uri;
 
 
 
@@ -82,7 +82,7 @@ JLoader::register('JFolder', JPATH_LIBRARIES . '/src/Filesystem/Folder.php');
         */
         public static function frameworkPath($base=false)
         {
-            if( $base==true ) return JURI::root(true).'/plugins/system/shortcode';
+            if( $base==true ) return Uri::root(true).'/plugins/system/shortcode';
 
             return JPATH_PLUGINS . '/system/shortcode';
         }
