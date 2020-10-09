@@ -1,6 +1,16 @@
 # plg-shortcode-joomla
  100% shortcode similar on wordpress and accessible also on Joomla
 
-## TODO
+### YOU CAN MAKE A DONATION CRYPTOCURRENCY
 
-+ Make update module https://github.com/alexonbstudio/joomla-update
+CRO : 0x73B72a87A241B93a1cd9696A363f2C7821B58009
+BTC: 35ZKG1kfHyeg4oywRQB5aA9CQWrNoTCqSz
+BCH: bitcoincash:qrdtttjs9ghwggh0ramgxqprfu5vj3723cwf65ntqc
+ETH: 0x73B72a87A241B93a1cd9696A363f2C7821B58009 
+LTC: M8KVcKJMh7nYV11yXvwAbnuuh5fqFebpqd
+XML: GB67TJFJO3GUA432EJ4JTODHFYSBTM44P4XQCDOFTXJNNPV2UKUJYVBF | MEMO: 3041041837
+DAI: 0x73B72a87A241B93a1cd9696A363f2C7821B58009
+BAT: 0x73B72a87A241B93a1cd9696A363f2C7821B58009
+
+
+
