@@ -56,19 +56,19 @@ if(!function_exists('wp_general_sc')) {
 		}
 		
 		# API JSON DECODE Website Project WP - BUSINESS
-		$nameJsonWP_business = ($business !='') ? $business : $wp_business['local']['name'];
-		$siretJsonWP_business = ($siret !='') ? $siret : $wp_business['local']['siret'];
-		$tvaJsonWP_business = ($tva !='') ? $tva : $wp_business['local']['tva'];
-		$addressJsonWP_business = ($address !='') ? $address : $wp_business['local']['address'];
-		$postalJsonWP_business = ($postal !='') ? $postal : $wp_business['local']['postal'];
-		$cityJsonWP_business = ($city !='') ? $city : $wp_business['local']['city'];
-		$regionJsonWP_business = ($region !='') ? $region : $wp_business['local']['region'];
-		$contryJsonWP_business = ($contry !='') ? $contry : $wp_business['local']['contry'];
-		$statusJsonWP_business = ($status !='') ? $status : $wp_business['local']['status'];
+		$nameJsonWP_business = ($business !='') ? $wp_business['local']['name'] : '';
+		$siretJsonWP_business = ($siret !='') ? $wp_business['local']['siret'] : '';
+		$tvaJsonWP_business = ($tva !='') ? $wp_business['local']['tva'] : '';
+		$addressJsonWP_business = ($address !='') ? $wp_business['local']['address'] : '';
+		$postalJsonWP_business = ($postal !='') ? $wp_business['local']['postal'] : '';
+		$cityJsonWP_business = ($city !='') ? $wp_business['local']['city'] : '';
+		$regionJsonWP_business = ($region !='') ? $wp_business['local']['region'] : '';
+		$contryJsonWP_business = ($contry !='') ? $wp_business['local']['contry'] : '';
+		$statusJsonWP_business = ($status !='') ? $wp_business['local']['status'] : '';
 		
-		$phoneJsonWP_business = ($phone !='') ? $phone : $wp_business['local']['phone']['number'];
-		$mobileJsonWP_business = ($mobile !='') ? $mobile : $wp_business['local']['mobile']['number'];
-		$faxJsonWP_business = ($fax !='') ? $fax : $wp_business['local']['fax']['number'];
+		$phoneJsonWP_business = ($phone !='') ? $wp_business['local']['phone']['number']: '';
+		$mobileJsonWP_business = ($mobile !='') ? $wp_business['local']['mobile']['number'] : '';
+		$faxJsonWP_business = ($fax !='') ? $wp_business['local']['fax']['number'] : '';
 		
 		# API JSON DECODE Website Project WP - IMAGES
 		$logoJsonWP_images = ($logo !='') ? $logo : $wp_sites['protocol'].'://'.$domainTLD.'/'.$wp_images['dir'].'/'.$wp_images['manager']['logo']['big'];
