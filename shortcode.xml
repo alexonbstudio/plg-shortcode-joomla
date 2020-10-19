@@ -7,7 +7,7 @@
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
     <authorEmail>contact@alexonbstudio.fr</authorEmail>
     <authorUrl>alexonbstudio.fr</authorUrl>
-    <version>4.2.3</version>
+    <version>4.2.4</version>
     <description>PLG_SHORTCODE_XML_DESC</description>
     <files>
 		<filename plugin="shortcode">shortcode.php</filename>

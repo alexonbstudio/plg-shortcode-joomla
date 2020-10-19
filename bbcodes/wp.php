@@ -2,7 +2,7 @@
 /**
  * @package	Plugin for Joomla!
  * @subpackage  plg_shortcode
- * @version	4.2.3
+ * @version	4.2.4
  * @author	Alexon Balangue
  * @link	alexonbstudio.fr
  * @copyright	(C) 2012-2020 Alexon Balangue. All rights reserved.
@@ -37,7 +37,7 @@ if(!function_exists('wp_general_sc')) {
 				'logo' => ''
 		 ), $atts));
 		 
-		$domain = ($domain !='') ? $domain : 'alexonbstudio.fr';
+		$domain = ($domain !='') ? $domain : 'alexonbstudio.yo.fr';
 		
 		
 		$wp_sites = json_decode(file_get_contents('https://'.$domain .'/api/sites.json'), true);
@@ -66,47 +66,28 @@ if(!function_exists('wp_general_sc')) {
 		$contryJsonWP_business = ($contry !='') ? $wp_business['local']['contry'] : '';
 		$statusJsonWP_business = ($status !='') ? $wp_business['local']['status'] : '';
 		
-		$phoneJsonWP_business = ($phone !='') ? $wp_business['local']['phone']['number']: '';
-		$mobileJsonWP_business = ($mobile !='') ? $wp_business['local']['mobile']['number'] : '';
-		$faxJsonWP_business = ($fax !='') ? $wp_business['local']['fax']['number'] : '';
+		$phoneJsonWP_business = ($phone !='') ? $wp_business['local']['phone']['number']: '****';
+		$mobileJsonWP_business = ($mobile !='') ? $wp_business['local']['mobile']['number'] : '****';
+		$faxJsonWP_business = ($fax !='') ? $wp_business['local']['fax']['number'] : '****';
 		
 		# API JSON DECODE Website Project WP - IMAGES
-		$logoJsonWP_images = ($logo !='') ? $logo : $wp_sites['protocol'].'://'.$domainTLD.'/'.$wp_images['dir'].'/'.$wp_images['manager']['logo']['big'];
+		$logoJsonWP_images = ($logo !='') ? $logo : 'https://'.$domainTLD.'/'.$wp_images['dir'].'/'.$wp_images['manager']['logo']['big'];
 		
-		# prepared show article output
-		if(!empty($phoneJsonWP_business)){
-			$showphoneNumber = '<a rel="nofollow" href="tel:'.$wp_business['local']['phone']['code'].$phoneJsonWP_business.'">'.$wp_business['local']['phone']['normal'].' '.$phoneJsonWP_business.'</a>';
-		}
-		
-		if(!empty($mobileJsonWP_business)){
-			$showmobileNumber = '<a rel="nofollow" href="tel:'.$wp_business['local']['mobile']['code'].$mobileJsonWP_business.'">'.$wp_business['local']['mobile']['normal'].' '.$mobileJsonWP_business.'</a>';
-		}
-		
-		if(!empty($faxJsonWP_business)){
-			$showfaxNumber = '<a rel="nofollow" href="tel:'.$wp_business['local']['fax']['code'].$faxJsonWP_business.'">'.$wp_business['local']['fax']['normal'].' '.$faxJsonWP_business.'</a>';
-		}
-		
-		if(!empty($logoJsonWP_images)){
-			$showLogo = '<img class="img-fluid" src="'.$logoJsonWP_images.'" alt="'.$nameJsonWP_business.'">';
-		}
-		
-		
-		ob_start(); 
-		
-		
+		ob_start(); 		
 ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-lg-4">
-					<?php echo $showLogo; ?>
+					<?php if(!empty($logoJsonWP_images)) { ?>
+						<?php echo '<img class="img-fluid" src="'.$logoJsonWP_images.'" alt="'.$nameJsonWP_business.'" />'; ?>
+					<?php } ?>
 					<p class="text-center">
 					<a href="<?php echo $domainTLD; ?>"><?php echo '<b>'.$nameJsonWP_business.'</b> '.$statusJsonWP_business; ?></a>
 					</p>
 				</div>
 				<div class="col-12 col-lg-8">
 					<p>
-					<i class="fas fa-map-marked-alt fa-2x"></i> <?php echo $addressJsonWP_business.' '.$postalJsonWP_business.' '.$cityJsonWP_business.' '.$regionJsonWP_business.' '.$contryJsonWP_business; ?><br>
-					<i class="fas fa-phone fa-2x"></i> <?php echo $showphoneNumber; ?> <i class="fas fa-mobile-alt fa-2x"></i> <?php echo $showmobileNumber; ?> <i class="fas fa-fax fa-2x"></i> <?php echo $showfaxNumber; ?>
+					<?php if(!empty($addressJsonWP_business)) { ?><i class="fas fa-map-marked-alt fa-2x"></i> <?php echo $addressJsonWP_business.' '.$postalJsonWP_business.' '.$cityJsonWP_business.' '.$regionJsonWP_business.' '.$contryJsonWP_business; ?><br><?php } ?><?php if(!empty($phoneJsonWP_business)) { ?><i class="fas fa-phone fa-2x"></i> <?php echo '<a rel="nofollow" href="tel:'.$wp_business['local']['phone']['code'].$phoneJsonWP_business.'">'.$wp_business['local']['phone']['normal'].' '.$phoneJsonWP_business.'</a>'; ?><?php } ?> | <?php if(!empty($mobileJsonWP_business)) { ?><i class="fas fa-mobile-alt fa-2x"></i> <?php echo '<a rel="nofollow" href="tel:'.$wp_business['local']['mobile']['code'].$mobileJsonWP_business.'">'.$wp_business['local']['mobile']['normal'].' '.$mobileJsonWP_business.'</a>'; ?><?php } ?> | <?php if(!empty($faxJsonWP_business)) { ?><i class="fas fa-fax fa-2x"></i> <?php echo '<a rel="nofollow" href="tel:'.$wp_business['local']['fax']['code'].$faxJsonWP_business.'">'.$wp_business['local']['fax']['normal'].' '.$faxJsonWP_business.'</a>'; ?><?php } ?>
 					</p>
 				</div>
 			</div>
