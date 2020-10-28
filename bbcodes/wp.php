@@ -66,9 +66,9 @@ if(!function_exists('wp_general_sc')) {
 		$contryJsonWP_business = ($contry !='') ? $wp_business['local']['contry'] : '';
 		$statusJsonWP_business = ($status !='') ? $wp_business['local']['status'] : '';
 		
-		$phoneJsonWP_business = ($phone !='') ? $wp_business['local']['phone']['number']: '****';
-		$mobileJsonWP_business = ($mobile !='') ? $wp_business['local']['mobile']['number'] : '****';
-		$faxJsonWP_business = ($fax !='') ? $wp_business['local']['fax']['number'] : '****';
+		$phoneJsonWP_business = ($phone !='') ? $wp_business['local']['phone']['number']: '';
+		$mobileJsonWP_business = ($mobile !='') ? $wp_business['local']['mobile']['number'] : '';
+		$faxJsonWP_business = ($fax !='') ? $wp_business['local']['fax']['number'] : '';
 		
 		# API JSON DECODE Website Project WP - IMAGES
 		$logoJsonWP_images = ($logo !='') ? $logo : 'https://'.$domainTLD.'/'.$wp_images['dir'].'/'.$wp_images['manager']['logo']['big'];
@@ -106,4 +106,43 @@ if(!function_exists('wp_general_sc')) {
 	}
 		
 	add_bbcodes( 'wp-general', 'wp_general_sc' );
+}
+
+
+if(!function_exists('wp_logo_sc')) {
+
+	function wp_logo_sc( $atts, $content) {
+		extract(bbcodes_atts(array(
+				'domain' => '',
+				/*Site imported GET Json WP - sites*/
+				'name' => '',
+				'logo' => ''
+		 ), $atts));
+		 
+		$domain = ($domain !='') ? $domain : 'alexonbstudio.yo.fr';
+		
+		$wp_business = json_decode(file_get_contents('https://'.$domain .'/api/business.json'), true);
+		$wp_images = json_decode(file_get_contents('https://'.$domain .'/api/images.json'), true);
+		
+		
+		# API JSON DECODE Website Project WP - SITES
+		$nameJsonWP_business = ($name !='') ? $name : $wp_business['local']['name'];
+		
+		
+		# API JSON DECODE Website Project WP - IMAGES
+		$logoJsonWP_images = ($logo !='') ? $logo : 'https://'.$domain.'/'.$wp_images['dir'].'/'.$wp_images['manager']['logo']['normal'];
+		
+		ob_start(); 		
+
+		if(!empty($logoJsonWP_images)) { 
+		?>
+			<?php echo '<img class="img-fluid" src="'.$logoJsonWP_images.'" alt="'.$nameJsonWP_business.'" />'; ?>
+		<?php 
+		} 
+					
+		$data = ob_get_clean();
+		return $data;
+	}
+		
+	add_bbcodes( 'wp-logo', 'wp_logo_sc' );
 }
